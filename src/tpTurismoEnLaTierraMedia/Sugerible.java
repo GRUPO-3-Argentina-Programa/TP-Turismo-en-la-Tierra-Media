@@ -1,4 +1,4 @@
-package turismoEnLaTierraMedia;
+package tpTurismoEnLaTierraMedia;
 
 public interface Sugerible {
 
@@ -9,18 +9,10 @@ public interface Sugerible {
 	
 	
 	
-	public static int getCosto(int monedas) {
-		int costo = monedas;
-		 return costo;
-		}
+	public abstract double getCosto();
 	
-	public static double getPromedioDeTiempo(double tiempo) {
-		double promedioDeTiempo = tiempo;
-		return promedioDeTiempo;
-	}
+	public abstract double getPromedioDeTiempo();
 	
-	public static TIPO getTipoAtraccion() {
-		return tipoAtraccion;
-	}
+	public abstract TIPO getTipoAtraccion();
 	
 }
