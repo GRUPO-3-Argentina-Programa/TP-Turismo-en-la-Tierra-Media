@@ -8,22 +8,28 @@ public class Atraccion implements Sugerible {
 	private int cupoDePersonas;
 	private TIPO tipo;
 	private String nombre;
-	
-	public Atraccion(String nombre, TIPO tipo, int costeDeVisita, double promedioDeTiempo, int cuposDePersonas) {
+
+	public Atraccion(String nombre, int costeDeVisita, double promedioDeTiempo, int cuposDePersonas, TIPO tipo) {
 		this.nombre = nombre;
-		this.tipo = tipo;
 		this.costeDeVisita = costeDeVisita;
 		this.promedioDeTiempo = promedioDeTiempo;
 		this.cupoDePersonas = cuposDePersonas;
+		this.tipo = tipo;
 	}
-	
+
 	public TIPO getTipoAtraccion() {
 		return tipo;
 	}
-	
+
 	public double getCosto() {
-		 return costeDeVisita;
-		}
+		return costeDeVisita;
+	}
+
+	@Override
+	public String toString() {
+		return "Nombre: " + nombre + " CosteDeVisita: " + costeDeVisita + " PromedioDeTiempo: " + promedioDeTiempo
+				+ " CupoDePersonas: " + cupoDePersonas + " Tipo: " + tipo;
+	}
 
 	@Override
 	public int hashCode() {
@@ -49,8 +55,5 @@ public class Atraccion implements Sugerible {
 	public double getPromedioDeTiempo() {
 		return promedioDeTiempo;
 	}
-	
-	
-
 
 }
