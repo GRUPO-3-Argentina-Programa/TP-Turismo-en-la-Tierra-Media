@@ -56,4 +56,34 @@ public class Atraccion implements Sugerible {
 		return promedioDeTiempo;
 	}
 
+	public int getCupo() {
+		return this.cupoDePersonas;
+	}
+
+	public void restarCupo() {
+		this.cupoDePersonas--;
+	}
+
+	public String getNombre() {
+		return this.nombre;
+	}
+
+	@Override
+	public boolean hayCupo() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean esPromo() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public Atraccion[] getAtracciones() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

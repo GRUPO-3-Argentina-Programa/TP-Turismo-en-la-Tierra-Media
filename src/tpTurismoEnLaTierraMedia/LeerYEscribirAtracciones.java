@@ -59,9 +59,16 @@ public class LeerYEscribirAtracciones {
 	// Este main es provisional
 	public static void main(String[] args) {
 		System.out.println("Leer\n");
-		
 		List<Atraccion> atracciones;
 		atracciones = leerAtracciones();
+		for(Atraccion a : atracciones) System.out.println(a);
+		
+		System.out.println("\nOrdenar\n");
+		atracciones.sort(new ComparadorDeSugerencias(TIPO.AVENTURA));
+		
+//		List<Atraccion> ordenada;
+//		ordenada = atracciones.sort()
+		
 		for(Atraccion a : atracciones) System.out.println(a);
 		
 		System.out.println("\nEscribir\n");

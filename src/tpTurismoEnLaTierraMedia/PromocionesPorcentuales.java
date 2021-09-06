@@ -4,30 +4,41 @@ package tpTurismoEnLaTierraMedia;
 
 public class PromocionesPorcentuales extends Promocion{
 
-	public PromocionesPorcentuales(Atraccion a, Atraccion b, double porcentaje) {
-		this.a = a;
-		this.b = b;
-		this.porcentaje = porcentaje;
-	}
-
-	static Atraccion a;
-	static Atraccion b;
-	
 	double porcentaje;
 	
-	
+		public PromocionesPorcentuales(TIPO valueOf,String nombre , Atraccion[] atraccionesDePromo, double porcentaje) {
+		super(valueOf, nombre, atraccionesDePromo);
+			
+		this.porcentaje = porcentaje;
+		
+	}
 	
 	@Override
 	public double getPromedioDeTiempo() {
-		return a.getPromedioDeTiempo() + b.getPromedioDeTiempo();
+		return 0;
 	}
 
 	@Override
 	public double getCosto() {
-		if (b.getTipoAtraccion().equals(a.getTipoAtraccion()))
-			return ((a.getCosto() + b.getCosto())*(1-porcentaje));
-	 else
-		 throw new Error("Las atracciones deben ser desde mismo tipo");
+		return 0;
+	}
+
+	@Override
+	public String getNombre() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean hayCupo() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean esPromo() {
+		// TODO Auto-generated method stub
+		return false;
 	}
 	
 }

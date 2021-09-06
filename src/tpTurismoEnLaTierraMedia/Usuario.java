@@ -1,23 +1,44 @@
 package tpTurismoEnLaTierraMedia;
 
-import java.util.Objects;
+import java.util. *;
 
 public class Usuario {
 	
 	private String nombre;
-	private int presupuesto;
+	private double presupuesto;
 	private double tiempoDisponible;
-	private String tipoDeAtraccionPreferida;
+	private TIPO tipoDeAtraccionPreferida;
+	protected List<Sugerible> itinerario;
 	
-	public Usuario(String nombre, int presupuesto, double tiempoDisponible, String tipoDeAtraccionPreferida) {
+	public Usuario(String nombre, int presupuesto, double tiempoDisponible,TIPO tipoDeAtraccionPreferida) {
 		this.nombre = nombre;
 		this.presupuesto = presupuesto;
 		this.tiempoDisponible = tiempoDisponible;
 		this.tipoDeAtraccionPreferida = tipoDeAtraccionPreferida;
 	}
 	
+	public String getNombre() {
+		return this.nombre;
+	}
+	
+	public double getTiempoDisponible() {
+		return this.tiempoDisponible;
+	}
+
+	public double getPresupuesto() {
+		return this.presupuesto;
+	}
+	
+	public TIPO getTipo() {
+		return this.tipoDeAtraccionPreferida;
+	}
+	
+	public List<Sugerible> getItinerario(){
+		return this.itinerario;
+	}
+	
 	public void aceptarSugerencia(Sugerible sugerencia) {
-		return;
+		this.itinerario.add(sugerencia);
 	}
 
 	@Override
@@ -39,7 +60,44 @@ public class Usuario {
 				&& tipoDeAtraccionPreferida == other.tipoDeAtraccionPreferida;
 	}
 	
-	
-	
+	public boolean puedeComprar(Sugerible sugerencia) {
+		return (sugerencia.getCosto() <= this.presupuesto &&
+				sugerencia.getPromedioDeTiempo() <= this.tiempoDisponible
+				&& noEstaIncluido(sugerencia));
+	}
 
+	private boolean noEstaIncluido(Sugerible sugerencia) {
+		if (sugerencia.esPromo()) {
+			for (Atraccion a : sugerencia.getAtracciones()) {
+				for (Sugerible i : itinerario) {
+					if (a == i)
+						return false;
+				}
+			}
+		}
+		else { 
+			for (Sugerible i : itinerario) {
+			if (sugerencia == i)
+				return false;
+			}
+		}
+		return true;
+	}
+
+	public void setPresupuesto(double costo) {
+		this.presupuesto -= costo;		
+	}
+
+	public void setTiempoDisponible(double promedioDeTiempo) {
+		this.tiempoDisponible -= promedioDeTiempo;
+		
+	}
+
+	@Override
+	public String toString() {
+		return "Usuario [Nombre= " + nombre + ", presupuesto = " + presupuesto + ", "
+				+ "Tiempo Disponible = " + tiempoDisponible
+				+ ", Preferencia = " + tipoDeAtraccionPreferida + "]";
+	}
+	
 }

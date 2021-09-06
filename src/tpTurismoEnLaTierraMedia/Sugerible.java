@@ -1,18 +1,19 @@
 package tpTurismoEnLaTierraMedia;
 
 public interface Sugerible {
-
-	public double promedioDeTiempo= 0;
-	public static final TIPO tipoAtraccion = null;
-	public int costo = 0;
 	
+	public String getNombre();
 	
+	public double getCosto();
 	
+	public double getPromedioDeTiempo();
 	
-	public abstract double getCosto();
+	public TIPO getTipoAtraccion();
 	
-	public abstract double getPromedioDeTiempo();
+	public boolean hayCupo();
 	
-	public abstract TIPO getTipoAtraccion();
+	public boolean esPromo();
+	
+	public Atraccion[] getAtracciones();
 	
 }

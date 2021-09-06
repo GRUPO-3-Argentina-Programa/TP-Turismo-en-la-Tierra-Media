@@ -1,8 +1,8 @@
-Nombre: Moria CosteDeVisita: 10 PromedioDeTiempo: 2.0 CupoDePersonas: 6 Tipo: AVENTURA
-Nombre: Minas Tirith CosteDeVisita: 5 PromedioDeTiempo: 2.5 CupoDePersonas: 25 Tipo: PAISAJE
-Nombre: La Comarca CosteDeVisita: 3 PromedioDeTiempo: 6.5 CupoDePersonas: 150 Tipo: DEGUSTACION
 Nombre: Mordor CosteDeVisita: 25 PromedioDeTiempo: 3.0 CupoDePersonas: 4 Tipo: AVENTURA
-Nombre: Abismo de Helm CosteDeVisita: 5 PromedioDeTiempo: 2.0 CupoDePersonas: 15 Tipo: PAISAJE
+Nombre: Moria CosteDeVisita: 10 PromedioDeTiempo: 2.0 CupoDePersonas: 6 Tipo: AVENTURA
+Nombre: Bosque Negro CosteDeVisita: 3 PromedioDeTiempo: 4.0 CupoDePersonas: 12 Tipo: AVENTURA
 Nombre: Lothlorien CosteDeVisita: 35 PromedioDeTiempo: 1.0 CupoDePersonas: 30 Tipo: DEGUSTACION
 Nombre: Erebor CosteDeVisita: 12 PromedioDeTiempo: 3.0 CupoDePersonas: 32 Tipo: PAISAJE
-Nombre: Bosque Negro CosteDeVisita: 3 PromedioDeTiempo: 4.0 CupoDePersonas: 12 Tipo: AVENTURA
+Nombre: Minas Tirith CosteDeVisita: 5 PromedioDeTiempo: 2.5 CupoDePersonas: 25 Tipo: PAISAJE
+Nombre: Abismo de Helm CosteDeVisita: 5 PromedioDeTiempo: 2.0 CupoDePersonas: 15 Tipo: PAISAJE
+Nombre: La Comarca CosteDeVisita: 3 PromedioDeTiempo: 6.5 CupoDePersonas: 150 Tipo: DEGUSTACION
