@@ -20,7 +20,10 @@ public class ComparadorDeSugerencias implements Comparator<Sugerible>{
 				this.preferencia == s2.getTipoAtraccion())
 			return 1;
 		//to do primero promocion
-		
+		else if (s1.esPromo() && !s2.esPromo())
+			return -1;
+		else if (s2.esPromo() && !s1.esPromo())
+			return 1;
 		//ordenar por costo
 		else if (s1.getCosto() > s2.getCosto())
 			return -1;

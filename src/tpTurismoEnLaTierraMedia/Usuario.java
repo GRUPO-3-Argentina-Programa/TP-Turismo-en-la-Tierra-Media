@@ -67,22 +67,18 @@ public class Usuario {
 	}
 
 	private boolean noEstaIncluido(Sugerible sugerencia) {
+			
 		if (sugerencia.esPromo()) {
-			for (Atraccion a : sugerencia.getAtracciones()) {
-				for (Sugerible i : itinerario) {
-					if (a == i)
-						return false;
-				}
+			for (Atraccion a : ((Promocion) sugerencia).getAtracciones())
+				if (itinerario.contains(a))
+					return false;
 			}
-		}
-		else { 
-			for (Sugerible i : itinerario) {
-			if (sugerencia == i)
-				return false;
-			}
-		}
+		else
+			return (itinerario.contains(sugerencia));
+		
 		return true;
 	}
+
 
 	public void setPresupuesto(double costo) {
 		this.presupuesto -= costo;		

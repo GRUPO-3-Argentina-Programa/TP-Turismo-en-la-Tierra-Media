@@ -1,45 +1,27 @@
 package tpTurismoEnLaTierraMedia;
 
-
+import java.util. *;
 
 public class PromocionesPorcentuales extends Promocion{
 
 	double porcentaje;
+	private double tiempoTotal;
+	private double sumaCostos;
 	
-		public PromocionesPorcentuales(TIPO valueOf,String nombre , Atraccion[] atraccionesDePromo, double porcentaje) {
-		super(valueOf, nombre, atraccionesDePromo);
-			
+		public PromocionesPorcentuales(TIPO valueOf, List<Atraccion> atraccionesDePromo, double porcentaje) {
+		super(valueOf, atraccionesDePromo);
 		this.porcentaje = porcentaje;
-		
-	}
-	
-	@Override
-	public double getPromedioDeTiempo() {
-		return 0;
-	}
+		}
 
 	@Override
 	public double getCosto() {
-		return 0;
+		for (Atraccion a : this.atraccionesDePromo)
+			sumaCostos += a.getCosto();
+		return sumaCostos*(1-porcentaje/100);
 	}
 
-	@Override
-	public String getNombre() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
-	@Override
-	public boolean hayCupo() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public boolean esPromo() {
-		// TODO Auto-generated method stub
-		return false;
-	}
+	
 	
 }
 	

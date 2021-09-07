@@ -8,25 +8,30 @@ public class App {
 	public static void main(String[] args) throws IOException {
 		
 		List<Atraccion> atracciones;
-		atracciones = LeerYEscribirAtracciones.leerAtracciones();
+		atracciones = AdministradorDeArchivos.leerAtracciones();
 		
 		List<Usuario> usuarios;
 		usuarios = AdministradorDeArchivos.getUsuarios("files/usuarios.txt");
 		
 		List<Promocion> promociones;
-		promociones = AdministradorDeArchivos.getPromociones("files/promociones.taxt");
+		promociones = AdministradorDeArchivos.getPromociones("files/promociones.txt");
+		
+		List <Sugerible> sugerencias = new LinkedList<Sugerible>(); 
+		sugerencias.addAll(promociones);
+		sugerencias.addAll(atracciones);
+		for(Sugerible s : sugerencias) System.out.println(s);
 		
 		for (Usuario u: usuarios) {
 			
 			
-			atracciones.sort(new ComparadorDeSugerencias(u.getTipo())); 
-			System.out.println("\n para usuario "+ u.getNombre());
+			sugerencias.sort(new ComparadorDeSugerencias(u.getTipo())); 
+			//System.out.println("\n para usuario "+ u.getNombre());
 			//for(Atraccion a : atracciones) System.out.println(a);
 			u.itinerario = new LinkedList<Sugerible>();
-			for (Atraccion a: atracciones) {
+			for (Sugerible a: sugerencias) {
 				
-				if (u.puedeComprar(a) && a.getCupo() > 0) {
-					//System.out.println(a.toString()+"\n Presione 1 si acepta sino presione cualquier otro numero\n");
+				if (u.puedeComprar(a) && a.hayCupo()) {
+					System.out.println(a.toString()+"\n Presione 1 si acepta sino presione cualquier otro numero\n");
 					
 					//int r = System.in.read();
 					//if (r == 1) {

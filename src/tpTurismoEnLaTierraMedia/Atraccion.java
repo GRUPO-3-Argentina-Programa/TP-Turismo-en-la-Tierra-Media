@@ -1,5 +1,6 @@
 package tpTurismoEnLaTierraMedia;
 
+import java.util.List;
 import java.util.Objects;
 
 public class Atraccion implements Sugerible {
@@ -70,20 +71,19 @@ public class Atraccion implements Sugerible {
 
 	@Override
 	public boolean hayCupo() {
-		// TODO Auto-generated method stub
-		return false;
+		return (this.getCupo() >= 1);
 	}
 
 	@Override
 	public boolean esPromo() {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
-	@Override
-	public Atraccion[] getAtracciones() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	
+	
+
+	
+	
+
 
 }

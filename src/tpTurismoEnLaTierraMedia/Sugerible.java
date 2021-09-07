@@ -1,5 +1,7 @@
 package tpTurismoEnLaTierraMedia;
 
+import java.util.List;
+
 public interface Sugerible {
 	
 	public String getNombre();
@@ -14,6 +16,8 @@ public interface Sugerible {
 	
 	public boolean esPromo();
 	
-	public Atraccion[] getAtracciones();
+	public void restarCupo();
+
+	//public List<Atraccion> getAtracciones();
 	
 }

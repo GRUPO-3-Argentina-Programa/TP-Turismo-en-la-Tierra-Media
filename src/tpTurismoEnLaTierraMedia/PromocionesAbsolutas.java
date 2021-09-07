@@ -1,10 +1,12 @@
 package tpTurismoEnLaTierraMedia;
 
+import java.util.List;
+
 public class PromocionesAbsolutas extends Promocion{
 	private double precio;
 
-	public PromocionesAbsolutas(TIPO valueOf, String nombre, Atraccion[] atraccionesDePromo, double precio) {
-		super(valueOf, nombre, atraccionesDePromo);
+	public PromocionesAbsolutas(TIPO valueOf, List<Atraccion> atraccionesDePromo, double precio) {
+		super(valueOf, atraccionesDePromo);
 		
 		this.precio = precio;
 	}
@@ -14,28 +16,5 @@ public class PromocionesAbsolutas extends Promocion{
 		return precio;
 	}
 
-	@Override
-	public double getPromedioDeTiempo() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public String getNombre() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public boolean hayCupo() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public boolean esPromo() {
-		// TODO Auto-generated method stub
-		return false;
-	}
 
 }
