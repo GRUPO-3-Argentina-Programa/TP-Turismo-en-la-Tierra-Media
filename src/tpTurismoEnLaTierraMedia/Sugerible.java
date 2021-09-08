@@ -1,14 +1,12 @@
 package tpTurismoEnLaTierraMedia;
 
-import java.util.List;
-
 public interface Sugerible {
 	
 	public String getNombre();
 	
 	public double getCosto();
 	
-	public double getPromedioDeTiempo();
+	public double getTiempoTotal();
 	
 	public TIPO getTipoAtraccion();
 	
@@ -18,6 +16,6 @@ public interface Sugerible {
 	
 	public void restarCupo();
 
-	//public List<Atraccion> getAtracciones();
-	
+	public void sugerenciaAcepatada();
+
 }

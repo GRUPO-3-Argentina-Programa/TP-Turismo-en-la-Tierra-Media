@@ -1,6 +1,5 @@
 package tpTurismoEnLaTierraMedia;
 
-import java.util.List;
 import java.util.Objects;
 
 public class Atraccion implements Sugerible {
@@ -28,8 +27,8 @@ public class Atraccion implements Sugerible {
 
 	@Override
 	public String toString() {
-		return "Nombre: " + nombre + " CosteDeVisita: " + costeDeVisita + " PromedioDeTiempo: " + promedioDeTiempo
-				+ " CupoDePersonas: " + cupoDePersonas + " Tipo: " + tipo;
+		return "\n Nombre: " + nombre + ", Costo: " + costeDeVisita + ", Tiempo: " + promedioDeTiempo
+				+ ", Tipo: " + tipo;
 	}
 
 	@Override
@@ -53,7 +52,7 @@ public class Atraccion implements Sugerible {
 	}
 
 	@Override
-	public double getPromedioDeTiempo() {
+	public double getTiempoTotal() {
 		return promedioDeTiempo;
 	}
 
@@ -79,11 +78,9 @@ public class Atraccion implements Sugerible {
 		return false;
 	}
 
-	
-	
-
-	
-	
-
+	@Override
+	public void sugerenciaAcepatada() {
+		this.restarCupo();
+	}
 
 }

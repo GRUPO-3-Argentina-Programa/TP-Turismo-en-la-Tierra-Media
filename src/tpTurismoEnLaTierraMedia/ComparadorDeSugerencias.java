@@ -19,7 +19,7 @@ public class ComparadorDeSugerencias implements Comparator<Sugerible>{
 		else if (this.preferencia != s1.getTipoAtraccion() &&
 				this.preferencia == s2.getTipoAtraccion())
 			return 1;
-		//to do primero promocion
+		//primero promocion
 		else if (s1.esPromo() && !s2.esPromo())
 			return -1;
 		else if (s2.esPromo() && !s1.esPromo())
@@ -30,9 +30,9 @@ public class ComparadorDeSugerencias implements Comparator<Sugerible>{
 		else if (s1.getCosto() < s2.getCosto())
 			return 1;
 		//ordenar por tiempo
-		else if (s1.getPromedioDeTiempo() > s2.getPromedioDeTiempo())
+		else if (s1.getTiempoTotal() > s2.getTiempoTotal())
 			return -1;
-		else if (s1.getPromedioDeTiempo() > s2.getPromedioDeTiempo())
+		else if (s1.getTiempoTotal() > s2.getTiempoTotal())
 			return 1;
 		
 		else return 0;			

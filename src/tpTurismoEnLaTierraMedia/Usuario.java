@@ -15,6 +15,7 @@ public class Usuario {
 		this.presupuesto = presupuesto;
 		this.tiempoDisponible = tiempoDisponible;
 		this.tipoDeAtraccionPreferida = tipoDeAtraccionPreferida;
+		this.itinerario = new LinkedList<Sugerible>();
 	}
 	
 	public String getNombre() {
@@ -39,6 +40,7 @@ public class Usuario {
 	
 	public void aceptarSugerencia(Sugerible sugerencia) {
 		this.itinerario.add(sugerencia);
+		this.setTiempoDisponible(sugerencia.getTiempoTotal());	
 	}
 
 	@Override
@@ -62,30 +64,41 @@ public class Usuario {
 	
 	public boolean puedeComprar(Sugerible sugerencia) {
 		return (sugerencia.getCosto() <= this.presupuesto &&
-				sugerencia.getPromedioDeTiempo() <= this.tiempoDisponible
+				sugerencia.getTiempoTotal() <= this.tiempoDisponible
 				&& noEstaIncluido(sugerencia));
 	}
 
 	private boolean noEstaIncluido(Sugerible sugerencia) {
 			
 		if (sugerencia.esPromo()) {
-			for (Atraccion a : ((Promocion) sugerencia).getAtracciones())
-				if (itinerario.contains(a))
+			for (Atraccion a : ((Promocion) sugerencia).getAtracciones()) {
+				for (Sugerible s : itinerario) {
+					if (s.esPromo()) {
+						if (((Promocion) s).getAtracciones().contains(a))
+							return false;
+					} else if (s.equals(a))
+						return false;
+				}
+			}
+		}
+		else {
+			for (Sugerible s : itinerario) {
+				if (s.esPromo()) {
+					if (((Promocion) s).getAtracciones().contains(sugerencia))
+						return false;
+				} else if (s.equals(sugerencia))
 					return false;
 			}
-		else
-			return (itinerario.contains(sugerencia));
-		
+		}		
 		return true;
 	}
-
 
 	public void setPresupuesto(double costo) {
 		this.presupuesto -= costo;		
 	}
 
-	public void setTiempoDisponible(double promedioDeTiempo) {
-		this.tiempoDisponible -= promedioDeTiempo;
+	public void setTiempoDisponible(double tiempo) {
+		this.tiempoDisponible -= tiempo;
 		
 	}
 

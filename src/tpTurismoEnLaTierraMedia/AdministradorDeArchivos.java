@@ -9,12 +9,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class AdministradorDeArchivos{
-
-	private static List<Atraccion> atraccionesDePromo;
-
-
-
-
+	
 	public static List<Usuario> getUsuarios(String archivoUs){
 		List <Usuario> usuarios = new LinkedList<Usuario>(); 
 		Scanner sc = null;
@@ -70,77 +65,67 @@ public class AdministradorDeArchivos{
 	
 	public static List<Promocion> getPromociones(String archivoPromos){
 		List <Promocion> promociones = new LinkedList<Promocion>(); 
+		List <Atraccion> atraccionesDePromo;
 		Scanner sc = null;
-		
+				
 		try {
 			sc = new Scanner(new File(archivoPromos));
 			
 			while (sc.hasNext()) {
-				
-				String datos[] = sc.nextLine().split("-");
+				atraccionesDePromo = new LinkedList<Atraccion>();
+				String[] datos = sc.nextLine().split("-");
 				int size = datos.length;
+				Atraccion next;
 				
-				
-				if (datos[0] == "porcentual") {
-					
-					for (int i=2; i<datos.length-1;i++) { 
-						Iterator<Atraccion> itr = leerAtracciones().iterator();
-							while (itr.hasNext()) {					
-								if (datos[i] == ((Atraccion) itr).getNombre()) {
-									atraccionesDePromo.add(itr.next());
+				for (int i = 2; i < size-1; i++) { 
+					Iterator<Atraccion> itr = leerAtracciones().iterator();
+						while (itr.hasNext()) {	
+							next = itr.next();
+							if (datos[i].equals(next.getNombre())) {
+								atraccionesDePromo.add(next);
 							}
 						}
-
+				}
+				
+				if (datos[0].equals("porcentual")) {
 					Promocion p = new PromocionesPorcentuales(TIPO.valueOf(datos[1]),
-							atraccionesDePromo,
-							Double.parseDouble(datos[size-1]));
+								atraccionesDePromo,
+								Double.parseDouble(datos[size-1]));
 					if (!promociones.contains(p))
 						promociones.add(p);
-					}
 				}
 				
-				else if (datos[0] == "absoluta") {
-					
-					for (int i=3; i<datos.length-1;i++) {
-						Iterator<Atraccion> itr = leerAtracciones().iterator();
-						while (itr.hasNext()) {					
-							if (datos[i] == ((Atraccion) itr).getNombre()) {
-								atraccionesDePromo.add(itr.next());
-							}
-						}
-					}
-
+				else if (datos[0].equals("absoluta")) {
 					Promocion p = new PromocionesAbsolutas(TIPO.valueOf(datos[1]),
-							atraccionesDePromo,
-							Double.parseDouble(datos[size-1]));
+								atraccionesDePromo,
+								Double.parseDouble(datos[size-1]));
 					if (!promociones.contains(p))
-						promociones.add(p);
+							promociones.add(p);
 				}
 				
-				else if (datos[0] == "AxB") {
+				else if (datos[0].equals("AxB")) {
+					Atraccion atraccionRegalo = null;
+					Iterator<Atraccion> itr = leerAtracciones().iterator();
 					
-					for (int i=3; i<datos.length-1;i++) {
-						Iterator<Atraccion> itr = leerAtracciones().iterator();
-						while (itr.hasNext()) {					
-							if (datos[i] == ((Atraccion) itr).getNombre()) {
-							atraccionesDePromo.add(itr.next());
-							}
+					while (itr.hasNext()) {	
+						next = itr.next();
+						if (datos[size-1].equals(next.getNombre())) {
+							atraccionRegalo = next;
 						}
 					}
 					Promocion p = new PromocionesAxB(TIPO.valueOf(datos[1]),
-							atraccionesDePromo);
+							atraccionesDePromo, atraccionRegalo);
 					if (!promociones.contains(p))
 						promociones.add(p);
+					}
 				}
-				
-			}
-		} catch(FileNotFoundException f){
+		} 
+		catch(FileNotFoundException f){
 			f.printStackTrace();
 		}
 		sc.close();
 		return promociones;
 	}
-	
 	
 	public static void escribirItinerario(Usuario u, List<Atraccion> itinerario, double sumadorTiempo,
 			double sumadorCosto) {
@@ -164,13 +149,9 @@ public class AdministradorDeArchivos{
 				
 		}
 		
-	public static void main(String[] args) {
-		List<Promocion> promociones;
-		promociones = AdministradorDeArchivos.getPromociones("files/promociones.txt");
-		for(Promocion p : promociones) {
-			System.out.println("AA");
-			System.out.println(p.toString());}
-	}
+	
+	
+
 	
 	
 //	public static void main(String[] args) {

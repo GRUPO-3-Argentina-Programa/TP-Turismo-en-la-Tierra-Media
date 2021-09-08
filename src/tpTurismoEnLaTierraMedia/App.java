@@ -1,63 +1,60 @@
 package tpTurismoEnLaTierraMedia;
 
 import java.io.IOException;
-import java.util. *;
+import java.util.*;
 
 public class App {
-		
+
 	public static void main(String[] args) throws IOException {
-		
+
 		List<Atraccion> atracciones;
 		atracciones = AdministradorDeArchivos.leerAtracciones();
-		
+
 		List<Usuario> usuarios;
 		usuarios = AdministradorDeArchivos.getUsuarios("files/usuarios.txt");
-		
+
 		List<Promocion> promociones;
 		promociones = AdministradorDeArchivos.getPromociones("files/promociones.txt");
-		
-		List <Sugerible> sugerencias = new LinkedList<Sugerible>(); 
+
+		List<Sugerible> sugerencias = new LinkedList<Sugerible>(atracciones);
 		sugerencias.addAll(promociones);
-		sugerencias.addAll(atracciones);
-		for(Sugerible s : sugerencias) System.out.println(s);
-		
-		for (Usuario u: usuarios) {
-			
-			
-			sugerencias.sort(new ComparadorDeSugerencias(u.getTipo())); 
-			//System.out.println("\n para usuario "+ u.getNombre());
-			//for(Atraccion a : atracciones) System.out.println(a);
-			u.itinerario = new LinkedList<Sugerible>();
-			for (Sugerible a: sugerencias) {
-				
-				if (u.puedeComprar(a) && a.hayCupo()) {
-					System.out.println(a.toString()+"\n Presione 1 si acepta sino presione cualquier otro numero\n");
-					
-					//int r = System.in.read();
-					//if (r == 1) {
-						u.setPresupuesto(a.getCosto());
-						u.setTiempoDisponible(a.getPromedioDeTiempo());
-						a.restarCupo();
-						u.itinerario.add(a);
-						
-					}
-				
+
+		Iterator<Usuario> u = usuarios.iterator();
+		while (u.hasNext()) {
+			Usuario us = u.next();
+			us.itinerario = new LinkedList<Sugerible>();
+
+			sugerencias.sort(new ComparadorDeSugerencias(us.getTipo()));
+
+			Iterator<Sugerible> sg = sugerencias.iterator();
+			Scanner sc = new Scanner(System.in);
+			while (sg.hasNext()) {
+				Sugerible sug = sg.next();
+				if (us.puedeComprar(sug) && sug.hayCupo()) {
+					System.out.println(sug.toString() +
+							"\n Usuario: " + us.getNombre() +
+							" -Presione 1 si acepta sino presione cualquier otro numero");
+
+					if (sc.next().equals("1")) {
+						sug.sugerenciaAcepatada();
+						us.aceptarSugerencia(sug);
+					} 
 				}
+			}
+			System.out.println(us.itinerario);
+		}
+		
+
 //			for(Atraccion i : itinerario) System.out.println("Itinerario de "+u.getNombre()+i);
 //			System.out.println(u.getTiempoDisponible()+" "+u.getPresupuesto());
 //			for(Atraccion a : atracciones) System.out.println(a.getNombre()+"cupo "+a.getCupo());
-			double sumadorTiempo = 0;
-			double sumadorCosto = 0;
-			for(Sugerible s : u.itinerario) {
-				sumadorTiempo += s.getPromedioDeTiempo();
-				sumadorCosto += s.getCosto();
-			}
-//			AdministradorDeArchivos.escribirItinerario(u, itinerario, sumadorTiempo, sumadorCosto);
-		}
-			
-			//itinerario = null;
-			//for(Atraccion i : itinerario) System.out.println(i);
+//				double sumadorTiempo = 0;
+//				double sumadorCosto = 0;
+//				for(Sugerible s : u.itinerario) {
+//					sumadorTiempo += s.getTiempoTotal();
+//					sumadorCosto += s.getCosto();
+//				}
+//			}
+//		}
 	}
 }
-	
-

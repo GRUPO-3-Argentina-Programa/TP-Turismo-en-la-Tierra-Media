@@ -22,7 +22,7 @@ public class PromocionesPorcentualesTest {
 		Promocion PP = new PromocionesPorcentuales(a, B, 0.2);
 		
 		assertEquals(160, PP.getCosto(), 0.001);
-		assertEquals(45, PP.getPromedioDeTiempo(), 0.001);
+		assertEquals(45, PP.getTiempoTotal(), 0.001);
 	}
 
 	@Test (expected = Error.class)
