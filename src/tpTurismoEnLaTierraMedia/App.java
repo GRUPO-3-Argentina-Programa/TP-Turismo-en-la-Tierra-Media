@@ -21,6 +21,8 @@ public class App {
 
 		Iterator<Usuario> u = usuarios.iterator();
 		while (u.hasNext()) {
+			double precioFinal = 0;
+			double tiempoFinal = 0;
 			Usuario us = u.next();
 			us.itinerario = new LinkedList<Sugerible>();
 
@@ -30,31 +32,25 @@ public class App {
 			Scanner sc = new Scanner(System.in);
 			while (sg.hasNext()) {
 				Sugerible sug = sg.next();
+				
 				if (us.puedeComprar(sug) && sug.hayCupo()) {
 					System.out.println(sug.toString() +
 							"\n Usuario: " + us.getNombre() +
 							" -Presione 1 si acepta sino presione cualquier otro numero");
 
 					if (sc.next().equals("1")) {
-						sug.sugerenciaAcepatada();
+						sug.restarCupo();
 						us.aceptarSugerencia(sug);
+						precioFinal += sug.getCosto();
+						tiempoFinal += sug.getTiempoTotal();
 					} 
 				}
 			}
-			System.out.println(us.itinerario);
+			AdministradorDeArchivos.escribirItinerario(us, us.itinerario, tiempoFinal, precioFinal);
+//			System.out.println("Itinerario de: " + us.getNombre() + "\n" + us.itinerario + "\n -------------------");
 		}
 		
-
-//			for(Atraccion i : itinerario) System.out.println("Itinerario de "+u.getNombre()+i);
-//			System.out.println(u.getTiempoDisponible()+" "+u.getPresupuesto());
-//			for(Atraccion a : atracciones) System.out.println(a.getNombre()+"cupo "+a.getCupo());
-//				double sumadorTiempo = 0;
-//				double sumadorCosto = 0;
-//				for(Sugerible s : u.itinerario) {
-//					sumadorTiempo += s.getTiempoTotal();
-//					sumadorCosto += s.getCosto();
-//				}
-//			}
-//		}
+		
+		
 	}
 }

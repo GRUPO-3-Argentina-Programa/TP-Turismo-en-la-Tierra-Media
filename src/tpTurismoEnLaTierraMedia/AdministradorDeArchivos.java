@@ -127,8 +127,8 @@ public class AdministradorDeArchivos{
 		return promociones;
 	}
 	
-	public static void escribirItinerario(Usuario u, List<Atraccion> itinerario, double sumadorTiempo,
-			double sumadorCosto) {
+	public static void escribirItinerario(Usuario u, List<Sugerible> itinerario, double tiempoFinal,
+			double costoFinal) {
 		
 			File f = new File("files/"+u.getNombre()+".txt");
 			PrintWriter pw;
@@ -138,10 +138,10 @@ public class AdministradorDeArchivos{
 				
 				pw.write(u.toString()+"\n");
 							
-				for(Atraccion i : itinerario) 
+				for(Sugerible i : itinerario) 
 					pw.write(i.getNombre()+"\n");
 				
-				pw.write("El costo total es : "+sumadorCosto+"\n El tiempo total es:"+sumadorTiempo);			
+				pw.write("El costo total es : "+costoFinal+"\n El tiempo total es:"+tiempoFinal);			
 				pw.close();
 			} catch (FileNotFoundException e) {
 				e.printStackTrace();

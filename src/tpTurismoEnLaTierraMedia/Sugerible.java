@@ -15,7 +15,9 @@ public interface Sugerible {
 	public boolean esPromo();
 	
 	public void restarCupo();
+	
+	//System.out.println(String.format("%.4f", inversionesAnuales[j]));
 
-	public void sugerenciaAcepatada();
+//	public void sugerenciaAcepatada();
 
 }

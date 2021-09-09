@@ -40,7 +40,8 @@ public class Usuario {
 	
 	public void aceptarSugerencia(Sugerible sugerencia) {
 		this.itinerario.add(sugerencia);
-		this.setTiempoDisponible(sugerencia.getTiempoTotal());	
+		this.setTiempoDisponible(sugerencia.getTiempoTotal());
+		this.setPresupuesto(sugerencia.getCosto());
 	}
 
 	@Override
@@ -67,7 +68,8 @@ public class Usuario {
 				sugerencia.getTiempoTotal() <= this.tiempoDisponible
 				&& noEstaIncluido(sugerencia));
 	}
-
+	
+	// to do correccion
 	private boolean noEstaIncluido(Sugerible sugerencia) {
 			
 		if (sugerencia.esPromo()) {
