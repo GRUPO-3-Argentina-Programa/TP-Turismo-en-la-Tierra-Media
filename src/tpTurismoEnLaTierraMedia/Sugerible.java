@@ -16,6 +16,4 @@ public interface Sugerible {
 	
 	public void restarCupo();
 
-	public void sugerenciaAcepatada();
-
 }

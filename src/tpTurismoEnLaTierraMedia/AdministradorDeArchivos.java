@@ -127,7 +127,8 @@ public class AdministradorDeArchivos{
 		return promociones;
 	}
 	
-	public static void escribirItinerario(Usuario u, List<Atraccion> itinerario, double sumadorTiempo,
+	public static void escribirItinerario(Usuario u, 
+			List<Atraccion> itinerario, double sumadorTiempo,
 			double sumadorCosto) {
 		
 			File f = new File("files/"+u.getNombre()+".txt");
@@ -149,15 +150,5 @@ public class AdministradorDeArchivos{
 				
 		}
 		
-	
-	
-
-	
-	
-//	public static void main(String[] args) {
-//	
-//		Scanner sc = new Scanner(System.in);
-//		
-//		System.out.println(sc.nextLine());
 		
 }

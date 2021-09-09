@@ -78,9 +78,4 @@ public class Atraccion implements Sugerible {
 		return false;
 	}
 
-	@Override
-	public void sugerenciaAcepatada() {
-		this.restarCupo();
-	}
-
 }

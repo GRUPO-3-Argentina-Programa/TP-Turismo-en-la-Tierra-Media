@@ -8,7 +8,6 @@ public class Promocion implements Sugerible {
 	protected int cupo;
 	protected double tiempoTotal;
 	protected double sumaCostos;
-	protected String[] nombresDeAtracciones;
 
 	public Promocion(TIPO tipo, List<Atraccion> atraccionesDePromo) {
 		this.tipoAtraccion = tipo;
@@ -32,6 +31,7 @@ public class Promocion implements Sugerible {
 	}
 
 	public double getCosto() {
+		
 		for (Atraccion a : atraccionesDePromo) {
 			sumaCostos += a.getCosto();
 		}
@@ -60,8 +60,9 @@ public class Promocion implements Sugerible {
 	// to do
 	public String[] getNombresDeAtracciones() {
 		int size = this.atraccionesDePromo.size();
-		for (int i = 0; i < size; i++)
-			nombresDeAtracciones[i] = atraccionesDePromo.get(i).getNombre();
+		String[] nombresDeAtracciones = new String[size];
+		for (int i = 0; i < size; i++) 
+			nombresDeAtracciones[i] = this.atraccionesDePromo.get(i).getNombre();
 		return nombresDeAtracciones;
 	}
 
@@ -74,7 +75,8 @@ public class Promocion implements Sugerible {
 	public String toString() {
 
 		// ver como obtener solo nombres de las atracciones!!
-		return "Promocion incluye " + nombresDeAtracciones + "\nTipo de Atracciones=" + tipoAtraccion
+		return "\n\nEsta promocion incluye las atracciones: " + getNombresDeAtracciones() 
+				+ "\nTipo de Atracciones= " + tipoAtraccion
 				+ "\nCosto Total= " + sumaCostos + "\nTiempo Total=" + tiempoTotal;
 	}
 
@@ -96,12 +98,6 @@ public class Promocion implements Sugerible {
 				&& Double.doubleToLongBits(sumaCostos) == Double.doubleToLongBits(other.sumaCostos)
 				&& Double.doubleToLongBits(tiempoTotal) == Double.doubleToLongBits(other.tiempoTotal)
 				&& tipoAtraccion == other.tipoAtraccion;
-	}
-
-	@Override
-	public void sugerenciaAcepatada() {
-		for (Atraccion a : atraccionesDePromo)
-			a.restarCupo();
 	}
 
 }
