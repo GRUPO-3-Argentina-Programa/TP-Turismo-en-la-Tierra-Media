@@ -16,7 +16,7 @@ public class PromocionesPorcentuales extends Promocion {
 	@Override
 	public double getCosto() {
 		this.sumaCostos = super.getCosto();
-		return sumaCostos * (1 - (porcentaje / 100));
+		return (sumaCostos * (1 - (porcentaje / 100)));
 	}
 
 }

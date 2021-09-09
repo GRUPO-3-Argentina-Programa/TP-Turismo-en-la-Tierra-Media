@@ -23,6 +23,8 @@ public class App {
 		
 		Iterator<Usuario> u = usuarios.iterator();
 		while (u.hasNext()) {
+			double precioFinal = 0;
+			double tiempoFinal = 0;
 			Usuario us = u.next();
 			us.itinerario = new LinkedList<Sugerible>();
 
@@ -33,6 +35,7 @@ public class App {
 			Scanner sc = new Scanner(System.in);
 			while (sg.hasNext()) {
 				Sugerible sug = sg.next();
+				
 				if (us.puedeComprar(sug) && sug.hayCupo()) {
 					System.out.println("Se sugiere:"+sug.toString() +
 							"\n Usuario: " + us.getNombre() +
@@ -41,24 +44,21 @@ public class App {
 					if (sc.next().equals("1")) {
 						sug.restarCupo();
 						us.aceptarSugerencia(sug);
+						precioFinal += sug.getCosto();
+						tiempoFinal += sug.getTiempoTotal();
 					} 
 				}
 			}
+<<<<<<< HEAD
 			System.out.println("El itinerario de "+us.getNombre()+
 					" esta formado por:"+ us.itinerario);
+=======
+			AdministradorDeArchivos.escribirItinerario(us, us.itinerario, tiempoFinal, precioFinal);
+//			System.out.println("Itinerario de: " + us.getNombre() + "\n" + us.itinerario + "\n -------------------");
+>>>>>>> 4556b5dd0a9dffcc0ef292a0b91204dcbed091cc
 		}
 		
-
-//			for(Atraccion i : itinerario) System.out.println("Itinerario de "+u.getNombre()+i);
-//			System.out.println(u.getTiempoDisponible()+" "+u.getPresupuesto());
-//			for(Atraccion a : atracciones) System.out.println(a.getNombre()+"cupo "+a.getCupo());
-//				double sumadorTiempo = 0;
-//				double sumadorCosto = 0;
-//				for(Sugerible s : u.itinerario) {
-//					sumadorTiempo += s.getTiempoTotal();
-//					sumadorCosto += s.getCosto();
-//				}
-//			}
-//		}
+		
+		
 	}
 }

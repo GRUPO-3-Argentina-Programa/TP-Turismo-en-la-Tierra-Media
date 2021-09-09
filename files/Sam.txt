@@ -1,0 +1,4 @@
+Usuario [Nombre= Sam, presupuesto = 0.0, Tiempo Disponible = 0.5, Preferencia = DEGUSTACION]
+Esto es una preomición que incluye: [Lothlorien, La Comarca]
+El costo total es : 36.0
+ El tiempo total es:7.5

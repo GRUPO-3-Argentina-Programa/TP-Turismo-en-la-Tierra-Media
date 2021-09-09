@@ -1,4 +1,9 @@
+<<<<<<< HEAD
 Eowyn-100-80-AVENTURA
 Gandalf-100-5-PAISAJE
+=======
+Eowyn-10-8-AVENTURA
+Gandalf-100-50-PAISAJE
+>>>>>>> 4556b5dd0a9dffcc0ef292a0b91204dcbed091cc
 Sam-36-8-DEGUSTACION
 Galadriel-120-2-PAISAJE

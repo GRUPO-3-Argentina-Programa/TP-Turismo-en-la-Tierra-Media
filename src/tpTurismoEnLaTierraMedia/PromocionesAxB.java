@@ -10,13 +10,13 @@ public class PromocionesAxB extends Promocion {
 	public PromocionesAxB(TIPO tipo, List<Atraccion> atraccionesDePromo, Atraccion atraccionRegalo) {
 		super(tipo, atraccionesDePromo);
 		this.atraccionRegalo = atraccionRegalo;
-		this.sumaCostos = super.getCosto();
 		this.tiempoTotal = getTiempoTotal();
 	}
 	
 	@Override
 	public double getTiempoTotal() {
-		return super.getTiempoTotal()+atraccionRegalo.getTiempoTotal();
+		this.tiempoTotal = super.getTiempoTotal()+atraccionRegalo.getTiempoTotal();
+		return this.tiempoTotal;
 	}
 	
 	@Override
@@ -38,4 +38,5 @@ public class PromocionesAxB extends Promocion {
 		atracciones.add(atraccionRegalo);
 		return atracciones;
 	}
+	
 }

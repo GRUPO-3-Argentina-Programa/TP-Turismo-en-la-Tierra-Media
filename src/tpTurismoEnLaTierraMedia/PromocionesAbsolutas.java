@@ -10,5 +10,10 @@ public class PromocionesAbsolutas extends Promocion{
 		this.sumaCostos = precio;
 		this.tiempoTotal = super.getTiempoTotal();
 	}
+	
+	@Override
+	public double getCosto() {
+		return this.sumaCostos;
+	}
 
 }
