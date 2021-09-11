@@ -1,4 +1,4 @@
-Usuario [Nombre= Eowyn, presupuesto = 0.0, Tiempo Disponible = 6.0, Preferencia = AVENTURA]
+Usuario [Nombre= Eowyn, presupuesto = 10.0, Tiempo Disponible = 8.0, Preferencia = AVENTURA]
 Moria
-El costo total es : 10.0
- El tiempo total es:2.0
+El costo total es: 10.0
+El tiempo total es: 2.0

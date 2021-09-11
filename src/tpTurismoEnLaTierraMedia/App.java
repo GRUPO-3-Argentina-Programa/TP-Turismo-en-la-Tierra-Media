@@ -47,7 +47,7 @@ public class App {
 				}
 			}
 			AdministradorDeArchivos.escribirItinerario(us, us.itinerario, tiempoFinal, precioFinal);
-//			System.out.println("Itinerario de: " + us.getNombre() + "\n" + us.itinerario + "\n -------------------");
+			System.out.println("\n ----------------------------");
 		}
 		
 		

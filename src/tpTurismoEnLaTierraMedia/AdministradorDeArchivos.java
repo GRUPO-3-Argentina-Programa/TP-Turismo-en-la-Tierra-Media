@@ -141,23 +141,12 @@ public class AdministradorDeArchivos{
 				for(Sugerible i : itinerario) 
 					pw.write(i.getNombre()+"\n");
 				
-				pw.write("El costo total es : "+costoFinal+"\n El tiempo total es:"+tiempoFinal);			
+				pw.write("El costo total es: "+costoFinal+"\nEl tiempo total es: "+tiempoFinal);			
 				pw.close();
 			} catch (FileNotFoundException e) {
 				e.printStackTrace();
 			}
 				
 		}
-		
-	
-	
-
-	
-	
-//	public static void main(String[] args) {
-//	
-//		Scanner sc = new Scanner(System.in);
-//		
-//		System.out.println(sc.nextLine());
 		
 }

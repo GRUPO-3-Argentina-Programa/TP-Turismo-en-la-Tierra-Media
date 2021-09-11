@@ -1,5 +1,7 @@
 package tpTurismoEnLaTierraMedia;
 
+import java.util.List;
+
 public interface Sugerible {
 	
 	public String getNombre();
@@ -15,6 +17,10 @@ public interface Sugerible {
 	public boolean esPromo();
 	
 	public void restarCupo();
+	
+	public List<Atraccion> getAtracciones();
+	
+	public String[] getNombresDeAtracciones();
 	
 	//System.out.println(String.format("%.4f", inversionesAnuales[j]));
 

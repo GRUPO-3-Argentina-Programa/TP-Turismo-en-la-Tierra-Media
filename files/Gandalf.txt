@@ -1,11 +1,6 @@
-Usuario [Nombre= Gandalf, presupuesto = 3.599999999999998, Tiempo Disponible = 10.0, Preferencia = PAISAJE]
-Esto es una preomición que incluye: [Minas Tirith, Abismo de Helm]
-Erebor
-Minas Tirith
-Abismo de Helm
-Esto es una preomición que incluye: [Lothlorien, La Comarca]
-Esto es una preomición que incluye: [Bosque Negro, Mordor]
-La Comarca
-Bosque Negro
-El costo total es : 96.4
- El tiempo total es:40.0
+Usuario [Nombre= Gandalf, presupuesto = 100.0, Tiempo Disponible = 50.0, Preferencia = PAISAJE]
+Esto es una promoción que incluye: [Minas Tirith, Abismo de Helm]
+Esto es una promoción que incluye: [Lothlorien, La Comarca]
+Esto es una promoción que incluye: [Bosque Negro, Mordor]
+El costo total es: 68.4
+El tiempo total es: 22.0

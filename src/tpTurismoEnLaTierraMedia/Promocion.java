@@ -71,7 +71,7 @@ public class Promocion implements Sugerible {
 
 	@Override
 	public String getNombre() {
-		return "Esto es una preomición que incluye: " + Arrays.toString(getNombresDeAtracciones());
+		return "Esto es una promoción que incluye: " + Arrays.toString(getNombresDeAtracciones());
 	}
 
 	@Override
