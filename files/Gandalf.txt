@@ -1,11 +1,5 @@
-Usuario [Nombre= Gandalf, presupuesto = 3.599999999999998, Tiempo Disponible = 10.0, Preferencia = PAISAJE]
-Esto es una preomición que incluye: [Minas Tirith, Abismo de Helm]
+Usuario [Nombre= Gandalf, presupuesto = 100.0, Tiempo Disponible = 5.0, Preferencia = PAISAJE]
 Erebor
-Minas Tirith
 Abismo de Helm
-Esto es una preomición que incluye: [Lothlorien, La Comarca]
-Esto es una preomición que incluye: [Bosque Negro, Mordor]
-La Comarca
-Bosque Negro
-El costo total es : 96.4
- El tiempo total es:40.0
+El costo total es: 17.0
+El tiempo total es: 5.0

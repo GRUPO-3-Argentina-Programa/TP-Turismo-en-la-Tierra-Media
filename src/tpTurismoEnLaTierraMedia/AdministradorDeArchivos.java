@@ -127,14 +127,9 @@ public class AdministradorDeArchivos{
 		return promociones;
 	}
 	
-<<<<<<< HEAD
-	public static void escribirItinerario(Usuario u, 
-			List<Atraccion> itinerario, double sumadorTiempo,
-			double sumadorCosto) {
-=======
-	public static void escribirItinerario(Usuario u, List<Sugerible> itinerario, double tiempoFinal,
+
+	public static void escribirItinerario(Usuario u, double tiempoFinal,
 			double costoFinal) {
->>>>>>> 4556b5dd0a9dffcc0ef292a0b91204dcbed091cc
 		
 			File f = new File("files/"+u.getNombre()+".txt");
 			PrintWriter pw;
@@ -144,16 +139,15 @@ public class AdministradorDeArchivos{
 				
 				pw.write(u.toString()+"\n");
 							
-				for(Sugerible i : itinerario) 
+				for(Sugerible i : u.itinerario) 
 					pw.write(i.getNombre()+"\n");
 				
-				pw.write("El costo total es : "+costoFinal+"\n El tiempo total es:"+tiempoFinal);			
+				pw.write("El costo total es: "+costoFinal+"\nEl tiempo total es: "+tiempoFinal);			
 				pw.close();
 			} catch (FileNotFoundException e) {
 				e.printStackTrace();
 			}
 				
 		}
-		
-		
+	
 }

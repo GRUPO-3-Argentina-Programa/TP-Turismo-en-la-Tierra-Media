@@ -1,4 +1,7 @@
-Usuario [Nombre= Eowyn, presupuesto = 0.0, Tiempo Disponible = 6.0, Preferencia = AVENTURA]
+Usuario [Nombre= Eowyn, presupuesto = 100.0, Tiempo Disponible = 80.0, Preferencia = AVENTURA]
+Esto es una promoción que incluye: [Bosque Negro, Mordor]
 Moria
-El costo total es : 10.0
- El tiempo total es:2.0
+Esto es una promoción que incluye: [Lothlorien, La Comarca]
+Esto es una promoción que incluye: [Minas Tirith, Abismo de Helm]
+El costo total es: 78.4
+El tiempo total es: 24.0

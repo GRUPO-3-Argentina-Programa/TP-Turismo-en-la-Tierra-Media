@@ -7,12 +7,9 @@ public class Promocion implements Sugerible {
 	protected TIPO tipoAtraccion;
 	protected int cupo;
 	protected double tiempoTotal;
-<<<<<<< HEAD
-	protected double sumaCostos;
-=======
 	protected double sumaCostos = 0;
 	protected String[] nombresDeAtracciones;
->>>>>>> 4556b5dd0a9dffcc0ef292a0b91204dcbed091cc
+
 
 	public Promocion(TIPO tipo, List<Atraccion> atraccionesDePromo) {
 		this.tipoAtraccion = tipo;
@@ -37,11 +34,7 @@ public class Promocion implements Sugerible {
 	}
 
 	public double getCosto() {
-<<<<<<< HEAD
-		
-=======
 		sumaCostos = 0;
->>>>>>> 4556b5dd0a9dffcc0ef292a0b91204dcbed091cc
 		for (Atraccion a : atraccionesDePromo) {
 			sumaCostos += a.getCosto();
 		}
@@ -67,39 +60,25 @@ public class Promocion implements Sugerible {
 		return true;
 	}
 
-	// to do
 	public String[] getNombresDeAtracciones() {
 		int size = this.atraccionesDePromo.size();
-<<<<<<< HEAD
-		String[] nombresDeAtracciones = new String[size];
-		for (int i = 0; i < size; i++) 
-			nombresDeAtracciones[i] = this.atraccionesDePromo.get(i).getNombre();
-=======
 		nombresDeAtracciones = new String[size];
 		for (int i = 0; i < size; i++) {
 			nombresDeAtracciones[i] = atraccionesDePromo.get(i).getNombre();
 		}
->>>>>>> 4556b5dd0a9dffcc0ef292a0b91204dcbed091cc
 		return nombresDeAtracciones;
 	}
 
 	@Override
 	public String getNombre() {
-		return "Esto es una preomición que incluye: " + Arrays.toString(getNombresDeAtracciones());
+		return "Esto es una promoción que incluye: " + Arrays.toString(getNombresDeAtracciones());
 	}
 
 	@Override
 	public String toString() {
 
-		// ver como obtener solo nombres de las atracciones!!
-<<<<<<< HEAD
-		return "\n\nEsta promocion incluye las atracciones: " + getNombresDeAtracciones() 
-				+ "\nTipo de Atracciones= " + tipoAtraccion
-				+ "\nCosto Total= " + sumaCostos + "\nTiempo Total=" + tiempoTotal;
-=======
-		return "\n Promocion incluye: " + Arrays.toString(getNombresDeAtracciones()) + "\nTipo de Atracciones= " + tipoAtraccion
-				+ "\nCosto Total= " + String.format("%.2f", getCosto()) + "\nTiempo Total= " + tiempoTotal;
->>>>>>> 4556b5dd0a9dffcc0ef292a0b91204dcbed091cc
+		return "\n Promocion: " + Arrays.toString(getNombresDeAtracciones()) + "\nTipo de Atracciones= " + tipoAtraccion
+				+ "\nCosto: " + String.format("%.2f", getCosto()) + ", Tiempo: " + tiempoTotal;
 	}
 
 	@Override
@@ -121,9 +100,5 @@ public class Promocion implements Sugerible {
 				&& Double.doubleToLongBits(tiempoTotal) == Double.doubleToLongBits(other.tiempoTotal)
 				&& tipoAtraccion == other.tipoAtraccion;
 	}
-<<<<<<< HEAD
-=======
-	
->>>>>>> 4556b5dd0a9dffcc0ef292a0b91204dcbed091cc
 
 }

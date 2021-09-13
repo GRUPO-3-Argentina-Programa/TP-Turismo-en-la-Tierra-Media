@@ -29,7 +29,7 @@ public class App {
 			us.itinerario = new LinkedList<Sugerible>();
 
 			sugerencias.sort(new ComparadorDeSugerencias(us.getTipo()));
-			System.out.println(sugerencias);
+			//System.out.println(sugerencias);
 
 			Iterator<Sugerible> sg = sugerencias.iterator();
 			Scanner sc = new Scanner(System.in);
@@ -37,9 +37,10 @@ public class App {
 				Sugerible sug = sg.next();
 				
 				if (us.puedeComprar(sug) && sug.hayCupo()) {
-					System.out.println("Se sugiere:"+sug.toString() +
-							"\n Usuario: " + us.getNombre() +
-							" -Presione 1 si acepta sino presione cualquier otro numero");
+					System.out.println("\n Usuario: " + us.getNombre() + ", tiempo disponible: "+ us.getTiempoDisponible() +
+							", presupuesto disponible: "+ String.format("%.2f", us.getPresupuesto())+
+							"\nSe sugiere: "+sug.toString() +
+							"\n-Presione 1 si acepta sino presione cualquier otro numero");
 
 					if (sc.next().equals("1")) {
 						sug.restarCupo();
@@ -49,16 +50,20 @@ public class App {
 					} 
 				}
 			}
-<<<<<<< HEAD
-			System.out.println("El itinerario de "+us.getNombre()+
-					" esta formado por:"+ us.itinerario);
-=======
-			AdministradorDeArchivos.escribirItinerario(us, us.itinerario, tiempoFinal, precioFinal);
-//			System.out.println("Itinerario de: " + us.getNombre() + "\n" + us.itinerario + "\n -------------------");
->>>>>>> 4556b5dd0a9dffcc0ef292a0b91204dcbed091cc
+			System.out.println("Su itinerario incluye: " + us.itinerario+ 
+					"\n\nEl costo total es: " + precioFinal + "\nEl tiempo total necesario es: " + tiempoFinal);
+			System.out.println("\n ----------------------------");
+			System.out.println("\nPresione Enter para continuar");
+			
+			System.in.read();
+			
+			AdministradorDeArchivos.escribirItinerario(us, tiempoFinal, precioFinal);
+			
 		}
-		
-		
-		
+//		
+//		for (Usuario u : usuarios) {
+//			AdministradorDeArchivos.escribirItinerario(u);
+//		}
+
 	}
 }
