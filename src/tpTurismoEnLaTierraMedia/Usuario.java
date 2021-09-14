@@ -11,6 +11,8 @@ public class Usuario {
 	protected List<Sugerible> itinerario;
 	private final double TIEMPO;
 	private final double PRESUPUESTO;
+	protected double totalPagar;
+	protected double totalTiempo;
 
 	public Usuario(String nombre, int presupuesto, double tiempoDisponible, TIPO tipoDeAtraccionPreferida) {
 		this.nombre = nombre;
@@ -41,13 +43,13 @@ public class Usuario {
 	public List<Sugerible> getItinerario() {
 		return this.itinerario;
 	}
-	
-	
 
 	public void aceptarSugerencia(Sugerible sugerencia) {
 		this.itinerario.add(sugerencia);
 		this.setTiempoDisponible(sugerencia.getTiempoTotal());
 		this.setPresupuesto(sugerencia.getCosto());
+		this.totalPagar += sugerencia.getCosto();
+		this.totalTiempo += sugerencia.getTiempoTotal();
 	}
 
 	@Override
@@ -112,8 +114,8 @@ public class Usuario {
 
 	@Override
 	public String toString() {
-		return "Usuario [Nombre= " + nombre + ", presupuesto = " + getPRESUPUESTO() + ", " + "Tiempo Disponible = "
-				+ getTIEMPO() + ", Preferencia = " + tipoDeAtraccionPreferida + "]";
+		return "Usuario: " + nombre + ", presupuesto: " + getPRESUPUESTO() + ", " + "Tiempo Disponible: "
+				+ getTIEMPO() + ", Preferencia: " + tipoDeAtraccionPreferida;
 	}
 
 	public double getTIEMPO() {

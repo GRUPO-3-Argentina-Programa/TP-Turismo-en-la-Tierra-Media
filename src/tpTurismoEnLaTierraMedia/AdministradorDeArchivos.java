@@ -128,8 +128,7 @@ public class AdministradorDeArchivos{
 	}
 	
 
-	public static void escribirItinerario(Usuario u, double tiempoFinal,
-			double costoFinal) {
+	public static void escribirItinerario(Usuario u) {
 		
 			File f = new File("files/"+u.getNombre()+".txt");
 			PrintWriter pw;
@@ -137,12 +136,14 @@ public class AdministradorDeArchivos{
 			try {
 				pw = new PrintWriter(f);
 				
-				pw.write(u.toString()+"\n");
+				pw.write("Usuario: " + u.getNombre() + ", tiempo disponible: "+ u.getTIEMPO() +
+						", presupuesto disponible: "+ String.format("%.2f", u.getPRESUPUESTO())+
+						"\nSu itinerario incluye:");
 							
 				for(Sugerible i : u.itinerario) 
-					pw.write(i.getNombre()+"\n");
+					pw.write("\n"+i.toString());
 				
-				pw.write("El costo total es: "+costoFinal+"\nEl tiempo total es: "+tiempoFinal);			
+				pw.write("\n-------------------------\nEl costo total es: "+ u.totalPagar+"\nEl tiempo total es: "+u.totalTiempo);			
 				pw.close();
 			} catch (FileNotFoundException e) {
 				e.printStackTrace();

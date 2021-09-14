@@ -23,8 +23,7 @@ public class App {
 		
 		Iterator<Usuario> u = usuarios.iterator();
 		while (u.hasNext()) {
-			double precioFinal = 0;
-			double tiempoFinal = 0;
+			
 			Usuario us = u.next();
 			us.itinerario = new LinkedList<Sugerible>();
 
@@ -45,25 +44,21 @@ public class App {
 					if (sc.next().equals("1")) {
 						sug.restarCupo();
 						us.aceptarSugerencia(sug);
-						precioFinal += sug.getCosto();
-						tiempoFinal += sug.getTiempoTotal();
 					} 
 				}
 			}
-			System.out.println("Su itinerario incluye: " + us.itinerario+ 
-					"\n\nEl costo total es: " + precioFinal + "\nEl tiempo total necesario es: " + tiempoFinal);
+			System.out.println(us.getNombre()+", su itinerario incluye: " + us.itinerario+ 
+					"\n\nEl costo total es: " + us.totalPagar + "\nEl tiempo total necesario es: " + us.totalTiempo);
 			System.out.println("\n ----------------------------");
 			System.out.println("\nPresione Enter para continuar");
 			
 			System.in.read();
 			
-			AdministradorDeArchivos.escribirItinerario(us, tiempoFinal, precioFinal);
-			
 		}
-//		
-//		for (Usuario u : usuarios) {
-//			AdministradorDeArchivos.escribirItinerario(u);
-//		}
+		
+		for (Usuario us : usuarios) {
+			AdministradorDeArchivos.escribirItinerario(us);
+		}
 
 	}
 }
