@@ -7,4 +7,5 @@ Lothlorien-35-1-30-DEGUSTACION
 Erebor-12-3-32-PAISAJE
 Bosque Negro-3-4-12-AVENTURA
 Castillo Embrujado-10-3.5-4-TERROR
-Carreta Fantasma -8-4-25-TERROR
+Carreta Fantasma-8-4-25-TERROR
+Bosque Tenebroso-6-4.5-10-TERROR
