@@ -1,3 +1,4 @@
 porcentual-AVENTURA-Bosque Negro-Mordor-20
 absoluta-DEGUSTACION-Lothlorien-La Comarca-36
 AxB-PAISAJE-Minas Tirith-Abismo de Helm-Erebor
+absoluta-TERROR-Carreta Fantasma-Bosque Tenebroso-10
