@@ -5,11 +5,15 @@ import static org.junit.Assert.*;
 import java.util.LinkedList;
 import java.util.List;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
 import tpTurismoEnLaTierraMedia.AdministradorDeArchivos;
 import tpTurismoEnLaTierraMedia.Atraccion;
+import tpTurismoEnLaTierraMedia.ComparadorDeSugerencias;
+import tpTurismoEnLaTierraMedia.Promocion;
+import tpTurismoEnLaTierraMedia.PromocionesPorcentuales;
 import tpTurismoEnLaTierraMedia.Sugerible;
 import tpTurismoEnLaTierraMedia.TIPO;
 import tpTurismoEnLaTierraMedia.Usuario;
@@ -26,9 +30,9 @@ public class Comparador {
 	Atraccion erebor;
 	Atraccion atraccionRegalo;
 	
-	List<Atraccion> promoPorcentual;
-	List<Atraccion> promoAxB;
-	List<Atraccion> promoAbs;
+	Promocion promoPorcentual;
+	Promocion promoAxB;
+	Promocion promoAbs;
 	private List<Usuario> usuarios;
 	private Usuario u1;
 	
@@ -44,20 +48,19 @@ public class Comparador {
 		Lothlorien = new Atraccion("Lothlorien", 35,1, 3, TIPO.DEGUSTACION);
 		erebor = new Atraccion("Erebor",12, 3, 32, TIPO.PAISAJE);
 		
-		promoPorcentual = new LinkedList<Atraccion>();
-		promoPorcentual.add (mordor);	
-		promoPorcentual.add(moria);
-		promoPorcentual.add(bosqueNegro);
+		List<Atraccion> atraccionesDePromo = new LinkedList<Atraccion>();
+		atraccionesDePromo.add (mordor);	
+		atraccionesDePromo.add(bosqueNegro);
+		promoPorcentual = new PromocionesPorcentuales(TIPO.AVENTURA, atraccionesDePromo, 20);
 		
-		promoAxB = new LinkedList<Atraccion>();
-		promoAxB.add(minasTirith);
-		promoAxB.add(abismoDeHelm);
-		
-		promoAbs = new LinkedList<Atraccion>();
-		promoAbs.add(laComarca);
-		promoAbs.add(Lothlorien);
-		
-		
+//		promoAxB = new LinkedList<Atraccion>();
+//		promoAxB.add(minasTirith);
+//		promoAxB.add(abismoDeHelm);
+//		
+		List<Sugerible> promoAbsoluta = new LinkedList<Sugerible>();
+		promoAbsoluta.add(laComarca);
+		promoAbsoluta.add(Lothlorien);
+		//promoAbs = new PromocionesAbsolutas(iPO:)
 		
 		usuarios = new LinkedList<Usuario>();
 		usuarios = AdministradorDeArchivos.getUsuarios("files/usuarios.txt");
@@ -66,10 +69,20 @@ public class Comparador {
 	
 	@Test
 	public void test() {
-		List<Sugerible> listaEsperada = new LinkedList<Sugerible>();
-		listaEsperada.add(moria);
 		
-		assertEquals(listaEsperada, otraLista.sort(new ComparadorDeAtracciones(TIPO)))
+		List<Sugerible> listaEsperada = new LinkedList<Sugerible>();
+		List<Sugerible> otraLista = new LinkedList<Sugerible>();
+		listaEsperada.add(promoPorcentual);
+		listaEsperada.add(abismoDeHelm);
+		listaEsperada.add(abismoDeHelm);
+		listaEsperada.add(laComarca);
+		otraLista.add(abismoDeHelm);
+		otraLista.add(promoPorcentual);
+		otraLista.add(laComarca);
+		otraLista.add(abismoDeHelm);	
+		otraLista.sort(new ComparadorDeSugerencias(TIPO.AVENTURA));
+		System.out.println(otraLista);
+		assertEquals(listaEsperada, otraLista);
 		
 	}
 
