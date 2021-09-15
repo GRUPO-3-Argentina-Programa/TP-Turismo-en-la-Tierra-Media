@@ -76,7 +76,6 @@ public class Usuario {
 				&& (!estaIncluido(sugerencia)));
 	}
 
-	// to do correccion
 	private boolean estaIncluido(Sugerible buscado) {
 
 		List<Atraccion> atracciones = new LinkedList<Atraccion>();

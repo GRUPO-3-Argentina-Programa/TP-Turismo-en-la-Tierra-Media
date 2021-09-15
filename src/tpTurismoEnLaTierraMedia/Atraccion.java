@@ -28,8 +28,8 @@ public class Atraccion implements Sugerible {
 
 	@Override
 	public String toString() {
-		return "\n Atraccion: " + nombre + ", Costo: " + costeDeVisita + ", Tiempo: " + promedioDeTiempo
-				+ ", Tipo: " + tipo;
+		return "\n Atraccion: " + nombre + ", Costo: " + costeDeVisita + ", Tiempo: " + promedioDeTiempo + ", Tipo: "
+				+ tipo;
 	}
 
 	@Override
@@ -81,13 +81,11 @@ public class Atraccion implements Sugerible {
 
 	@Override
 	public List<Atraccion> getAtracciones() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public String[] getNombresDeAtracciones() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 

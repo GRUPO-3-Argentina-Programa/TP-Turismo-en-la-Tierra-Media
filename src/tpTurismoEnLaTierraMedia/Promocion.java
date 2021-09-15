@@ -10,11 +10,10 @@ public class Promocion implements Sugerible {
 	protected double sumaCostos = 0;
 	protected String[] nombresDeAtracciones;
 
-
 	public Promocion(TIPO tipo, List<Atraccion> atraccionesDePromo) {
 		this.tipoAtraccion = tipo;
 		this.atraccionesDePromo = new LinkedList<Atraccion>(atraccionesDePromo);
-		
+
 	}
 
 	public TIPO getTipoAtraccion() {

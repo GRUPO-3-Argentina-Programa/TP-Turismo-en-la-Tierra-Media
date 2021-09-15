@@ -2,15 +2,14 @@ package tpTurismoEnLaTierraMedia;
 
 import java.util.List;
 
-public class PromocionesAbsolutas extends Promocion{
-	
+public class PromocionAbs extends Promocion {
 
-	public PromocionesAbsolutas(TIPO valueOf, List<Atraccion> atraccionesDePromo, double precio) {
+	public PromocionAbs(TIPO valueOf, List<Atraccion> atraccionesDePromo, double precio) {
 		super(valueOf, atraccionesDePromo);
 		this.sumaCostos = precio;
 		this.tiempoTotal = super.getTiempoTotal();
 	}
-	
+
 	@Override
 	public double getCosto() {
 		return this.sumaCostos;

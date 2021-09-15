@@ -1,0 +1,9 @@
+Usuario: Galadriel, tiempo disponible: 6.0, presupuesto disponible: 120,00
+Su itinerario incluye:
+
+ Atraccion: Erebor, Costo: 12, Tiempo: 3.0, Tipo: PAISAJE
+
+ Atraccion: Minas Tirith, Costo: 5, Tiempo: 2.5, Tipo: PAISAJE
+-------------------------
+El costo total es: 17.0
+El tiempo total es: 5.5

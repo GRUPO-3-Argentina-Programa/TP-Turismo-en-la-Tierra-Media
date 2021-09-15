@@ -1,4 +1,0 @@
-Usuario [Nombre= Galadriel, presupuesto = 120.0, Tiempo Disponible = 2.0, Preferencia = PAISAJE]
-Abismo de Helm
-El costo total es: 5.0
-El tiempo total es: 2.0

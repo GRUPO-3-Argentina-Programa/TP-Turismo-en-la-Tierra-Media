@@ -1,5 +1,0 @@
-Usuario [Nombre= Gandalf, presupuesto = 100.0, Tiempo Disponible = 5.0, Preferencia = PAISAJE]
-Erebor
-Abismo de Helm
-El costo total es: 17.0
-El tiempo total es: 5.0

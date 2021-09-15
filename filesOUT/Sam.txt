@@ -1,0 +1,7 @@
+Usuario: Sam, tiempo disponible: 8.0, presupuesto disponible: 36,00
+Su itinerario incluye:
+
+ Atraccion: Lothlorien, Costo: 35, Tiempo: 1.0, Tipo: DEGUSTACION
+-------------------------
+El costo total es: 35.0
+El tiempo total es: 1.0

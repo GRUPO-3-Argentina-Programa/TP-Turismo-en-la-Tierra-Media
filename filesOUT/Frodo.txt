@@ -1,0 +1,7 @@
+Usuario: Frodo, tiempo disponible: 4.5, presupuesto disponible: 30,00
+Su itinerario incluye:
+
+ Atraccion: Carreta Fantasma, Costo: 8, Tiempo: 4.0, Tipo: TERROR
+-------------------------
+El costo total es: 8.0
+El tiempo total es: 4.0

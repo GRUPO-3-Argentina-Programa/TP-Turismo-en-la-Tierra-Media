@@ -1,0 +1,9 @@
+Usuario: Gandalf, tiempo disponible: 5.0, presupuesto disponible: 100,00
+Su itinerario incluye:
+
+ Atraccion: Erebor, Costo: 12, Tiempo: 3.0, Tipo: PAISAJE
+
+ Atraccion: Abismo de Helm, Costo: 5, Tiempo: 2.0, Tipo: PAISAJE
+-------------------------
+El costo total es: 17.0
+El tiempo total es: 5.0

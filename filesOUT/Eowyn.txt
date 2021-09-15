@@ -1,0 +1,7 @@
+Usuario: Eowyn, tiempo disponible: 8.0, presupuesto disponible: 10,00
+Su itinerario incluye:
+
+ Atraccion: Moria, Costo: 10, Tiempo: 2.0, Tipo: AVENTURA
+-------------------------
+El costo total es: 10.0
+El tiempo total es: 2.0
